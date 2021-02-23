@@ -10,9 +10,4 @@ parrot_trouble(False, 6) → False
 """
 
 def parrot_trouble(talking, hour):
-  if talking & (hour < 7):
-    return True
-  elif talking & (hour > 20):
-    return True
-  else:
-    return False
+  return (talking and (hour < 7 or hour > 20))
