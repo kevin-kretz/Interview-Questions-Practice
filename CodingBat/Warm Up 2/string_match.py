@@ -12,12 +12,10 @@ string_match('abc', 'axc') → 0
 
 def string_match(a, b):
   count = 0
+  shorter_string = (min(len(a), len(b)))
   
-  for i in range(shorter_string(a, b)-1):
+  for i in range(shorter_string-1):
     if a[i] == b[i] and a[i+1] == b[i+1]:
       count += 1
       
   return(count)
-  
-def shorter_string(a, b):
-  return(min(len(a), len(b)))
