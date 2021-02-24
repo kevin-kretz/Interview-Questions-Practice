@@ -12,7 +12,7 @@ string_splosion('ab') → 'aab'
 def string_splosion(str):
   result = ""
   
-  for i in range(len(str) + 1):
-    result += str[:i]
+  for i in range(len(str)):
+    result += str[:i+1]
   
   return(result)
