@@ -1,4 +1,6 @@
 """
+Solution by: Kevin Kretz
+
 https://leetcode.com/problems/running-sum-of-1d-array/
 """
 
