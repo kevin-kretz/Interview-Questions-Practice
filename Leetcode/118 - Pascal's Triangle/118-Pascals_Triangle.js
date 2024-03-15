@@ -1,6 +1,6 @@
 /**
  * This was my initial solution to the problem.
- * This solution has a time complexity of O(n^2), where n is the value of the numRows parameter.
+ * This solution has a space complexity and time complexity of O(n^2), where n is the value of the numRows parameter.
  *
  * @param {number} numRows
  * @return {number[][]}
