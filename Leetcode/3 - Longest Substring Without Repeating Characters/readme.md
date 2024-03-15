@@ -21,7 +21,8 @@ Explanation: The answer is "abc", with the length of 3.
 
 
 ### Example 2
-```nput: s = "bbbbb"
+```
+Input: s = "bbbbb"
 Output: 1
 Explanation: The answer is "b", with the length of 1.
 
