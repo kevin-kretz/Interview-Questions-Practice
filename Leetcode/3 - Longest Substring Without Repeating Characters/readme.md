@@ -36,8 +36,8 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 ```
 
 ## Solution
-[View Solution](./3-Longest_Substring_Without_Repeating_Characters.js)
+[View Solution](./3-Longest_Substring_Without_Repeating_Characters_v2.js)
 
-**Time Complexity:** `O(n^2)` The outer loop is O(n), the inner loop should save time, however, in the worst case scenario, it's time complexity is O(k) where k is the length of the remaining substring from the current position. Therefore the overall time complexity is O(n*k) or O(n^2).
+**Time Complexity:** `O(n)` where n is the length of the input string, because it iterates over the string once.
 
-**Space Complexity:** `O(n)` The set and the dictionary are both O(n) in space, where n is the length of the given string. Therefore, O(n + n), which simplifies to O(n) is the memory complexity.
+**Space Complexity:** `O(min(m,n))` where m is the size of the character set, because the character map can store at most m unique characters.
