@@ -49,5 +49,3 @@ var insert = function(intervals, newInterval) {
 
     return result;
 };
-
-insert([[1,5]], [6,8]);
