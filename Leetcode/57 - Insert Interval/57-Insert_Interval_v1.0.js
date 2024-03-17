@@ -21,21 +21,24 @@ var insert = function(intervals, newInterval) {
         return [...intervals, newInterval];
     }
 
-    for (let i in intervals) {
-        if (newInterval[0] > intervals[i][1]){
-            result.push(intervals[i]);
+    // interval === intervals[i]
+    // interval[1] === interval[i][1]
+    for (let [i, interval] of intervals.entries()) {
+
+        if (newInterval[0] > interval[1]){
+            result.push(interval);
         }
 
-        else if (newInterval[1] < intervals[i][0]) {
+        else if (newInterval[1] < interval[0]) {
             result.push(newInterval);
             pushRemainingIntervals(i);
             break
         }
 
         else {
-            const startingDigit = Math.min(newInterval[0], intervals[i][0]);
+            const startingDigit = Math.min(newInterval[0], interval[0]);
 
-            while (parseInt(i) + 1 < intervals.length && newInterval[1] >= intervals[parseInt(i) + 1][0]) {
+            while (i + 1 < intervals.length && newInterval[1] >= intervals[i + 1][0]) {
                 i++;
             }
 
@@ -49,3 +52,5 @@ var insert = function(intervals, newInterval) {
 
     return result;
 };
+
+insert([[1,3],[6,9]], [2,5]);
