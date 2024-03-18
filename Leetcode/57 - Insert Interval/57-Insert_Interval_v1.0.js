@@ -32,5 +32,3 @@ function insert(intervals, newInterval) {
     console.log(result)
     return result;
 }
-
-insert([[1,3],[6,9]], [2,5]);
