@@ -41,6 +41,6 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 
 [View solution](./57-Insert_Interval_v1.0.js)
 
-**Time complexity:** `O(n^2)` when the `newInterval` overlaps with multiple `interval`s, the function needs to iterate through the entire `intervals` array once `O(n)`, and for each overlapping `interval`, it may need to iterate through the remaining `interval`s to find the end of the merged `interval` `O(n)`.
+**Time complexity:** `O(n)` when the `n` is the length of `intervals`.
 
 **Space complexity:** `O(n)` where `n` is the total number of intervals, including the input `intervals` array and  `newInterval`.
