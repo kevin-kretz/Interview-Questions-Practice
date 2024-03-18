@@ -3,54 +3,34 @@
  * @param {number[]} newInterval
  * @return {number[][]}
  */
-var insert = function(intervals, newInterval) {
-    function pushRemainingIntervals(i) {
-        while (i < intervals.length) {
-            result.push(intervals[i])
-            i++
-        }
+function insert(intervals, newInterval) {
+    function mergeVariables(a, b) {
+        return [Math.min(a[0], b[0]), Math.max(a[1], b[1])]
     }
 
+    let i = 0;
     let result = [];
-
-    if (intervals.length === 0) {
-        return [newInterval];
+    
+  
+    while (i < intervals.length && newInterval[0] > intervals[i][1]) {
+        result.push(intervals[i]);
+        i++;
     }
 
-    if (newInterval[0] > intervals[intervals.length - 1][1]) {
-        return [...intervals, newInterval];
+    while (i < intervals.length && newInterval[1] >= intervals[i][0]) {
+        newInterval = mergeVariables(newInterval, intervals[i]);
+        i++;
     }
 
-    // interval === intervals[i]
-    // interval[1] === interval[i][1]
-    for (let [i, interval] of intervals.entries()) {
+    result.push(newInterval);
 
-        if (newInterval[0] > interval[1]){
-            result.push(interval);
-        }
-
-        else if (newInterval[1] < interval[0]) {
-            result.push(newInterval);
-            pushRemainingIntervals(i);
-            break
-        }
-
-        else {
-            const startingDigit = Math.min(newInterval[0], interval[0]);
-
-            while (i + 1 < intervals.length && newInterval[1] >= intervals[i + 1][0]) {
-                i++;
-            }
-
-            const endingDigit = Math.max(newInterval[1], intervals[i][1])
-            result.push([startingDigit, endingDigit]);
-            i++;
-            pushRemainingIntervals(i);
-            break
-        }
+    while (i < intervals.length) {
+        result.push(intervals[i]);
+        i++
     }
 
+    console.log(result)
     return result;
-};
+}
 
 insert([[1,3],[6,9]], [2,5]);
